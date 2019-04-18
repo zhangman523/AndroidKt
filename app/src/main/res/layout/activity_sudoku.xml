@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <zhangman.github.androidkt.jsudoku.Board
+        android:id="@+id/board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/board"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp">
+
+        <TextView
+            android:id="@+id/one_number_label"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="35dp"
+            android:background="#4fe8fc"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="1"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/two_number_label"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/one_number_label"
+            android:background="#4fe8fc"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="2"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/three_number_label"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/two_number_label"
+            android:background="#4fe8fc"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="3"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/four_number_label"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/three_number_label"
+            android:background="#4fe8fc"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="4"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/five_number_label"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/one_number_label"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="40dp"
+            android:background="#4fe8fc"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="5"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/six_number_label"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignTop="@id/five_number_label"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/five_number_label"
+            android:background="#4fe8fc"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="6"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/seven_number_label"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignTop="@id/six_number_label"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/six_number_label"
+            android:background="#4fe8fc"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="7"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/eight_number_label"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignTop="@id/seven_number_label"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/seven_number_label"
+            android:background="#4fe8fc"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="8"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/nine_number_label"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignTop="@id/eight_number_label"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@id/eight_number_label"
+            android:background="#4fe8fc"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="9"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

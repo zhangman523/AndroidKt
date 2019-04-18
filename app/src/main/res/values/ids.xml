@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="row" type="id" />
+    <item name="column" type="id" />
+    <item name="isLoad" type="id" />
+</resources>

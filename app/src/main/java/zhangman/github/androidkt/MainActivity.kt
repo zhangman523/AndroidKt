@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity() {
         DemosAdapter.Demo(
             "ConstrainLayout ConstraintLayoutStates ", " Basic ConstraintLayoutStates example ",
             ConstraintLayoutStateTest::class.java
-        ), DemosAdapter.Demo("Sudoku", "Sudoku java model", SudoActivity::class.java)
+        ), DemosAdapter.Demo("Sudoku", "Sudoku java model", SudoActivity::class.java),
+        DemosAdapter.Demo("新冠状病毒疫情", "疫情地图", GoChinaActivity::class.java)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

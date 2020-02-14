@@ -25,6 +25,7 @@
         <activity android:name=".SudoActivity"
             android:label="Sudoku"
             />
+        <activity android:name=".GoChinaActivity" />
     </application>
 
 </manifest>

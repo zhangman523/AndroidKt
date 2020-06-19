@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import zhangman.github.androidkt.constrainlayout.ConstraintLayoutStateTest
+import zhangman.github.androidkt.notification.NotificationOTest
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +18,13 @@ class MainActivity : AppCompatActivity() {
         DemosAdapter.Demo(
             "ConstrainLayout ConstraintLayoutStates ", " Basic ConstraintLayoutStates example ",
             ConstraintLayoutStateTest::class.java
-        ), DemosAdapter.Demo("Sudoku", "Sudoku java model", SudoActivity::class.java)
+        ),
+        DemosAdapter.Demo("Sudoku", "Sudoku java model", SudoActivity::class.java),
+        DemosAdapter.Demo(
+            "notification test",
+            "android o notification compat",
+            NotificationOTest::class.java
+        )
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

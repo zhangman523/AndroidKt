@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import zhangman.github.androidkt.constrainlayout.ConstraintLayoutStateTest
 import zhangman.github.androidkt.notification.NotificationOTest
+import zhangman.github.androidkt.transition.CircularTransitionAActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +25,9 @@ class MainActivity : AppCompatActivity() {
             "notification test",
             "android o notification compat",
             NotificationOTest::class.java
+        ), DemosAdapter.Demo(
+            "circular reveal animation",
+            "transition circular reveal animation", CircularTransitionAActivity::class.java
         )
     )
 

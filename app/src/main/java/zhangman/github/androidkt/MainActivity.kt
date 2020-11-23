@@ -32,9 +32,9 @@ class MainActivity : AppCompatActivity() {
         ), DemosAdapter.Demo(
             "Arc circle animation",
             "Arc circle animation", ArcCircleAnimationActivity::class.java
-        )
-        ), DemosAdapter.Demo("Sudoku", "Sudoku java model", SudoActivity::class.java),
-        DemosAdapter.Demo("新冠状病毒疫情", "疫情地图", GoChinaActivity::class.java)
+        ),
+        DemosAdapter.Demo("Sudoku", "Sudoku java model", SudoActivity::class.java),
+        DemosAdapter.Demo("中国地图", "中国地图", GoChinaActivity::class.java)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

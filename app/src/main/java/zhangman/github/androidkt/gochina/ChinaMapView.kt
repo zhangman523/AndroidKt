@@ -6,7 +6,6 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import androidx.annotation.IntDef
-import zhangman.github.androidkt.util.DensityUtils
 import zhangman.github.androidkt.util.SvgPathToAndroidPath
 import kotlin.math.abs
 import kotlin.math.sqrt
@@ -32,6 +31,8 @@ class ChinaMapView @JvmOverloads constructor(
         private val TEN_TO_NINETY_NINE_COLOR = Color.rgb(242, 168, 140)
         private val ONE_TO_NINE_COLOR = Color.rgb(251, 238, 122)
         private val ZERO_COLOR = Color.rgb(245, 245, 245)
+        private val TEXT_COLOR = Color.rgb(41, 29, 24)
+
         private var chinaSvgPath = arrayOf(
             /**0  北京  */
             "M421.139,189.75L420.782,186.894L419.95,184.989L425.045,182.863L425.426,181.18L424.23699999999997,176.413H422.56899999999996L415.90299999999996,172.964L412.21299999999997,176.654C412.21299999999997,176.654,411.08799999999997,183.239,411.381,181.534C411.66999999999996,179.82999999999998,407.688,185.822,407.688,185.822L407.094,190.108L407.926,192.371L412.807,191.537L416.5,192.608L418.284,190.941L421.139,189.75Z",
@@ -101,6 +102,42 @@ class ChinaMapView @JvmOverloads constructor(
             "M417.745,409.005L421.139,409.778L424.592,407.22L426.258,411.802C426.258,411.802,420.73699999999997,414.475,422.567,413.58700000000005C424.395,412.70300000000003,417.926,413.232,417.926,413.232L417.092,409.778L417.745,409.005Z",
             /**33 台湾  */
             "M505.438,371.203L502.221,390.37199999999996L500.557,396.44199999999995V401.56499999999994L499.127,402.99199999999996L495.676,397.87299999999993L491.983,395.01499999999993L488.76800000000003,386.4439999999999C488.76800000000003,386.4439999999999,488.317,380.8239999999999,489.12500000000006,378.7039999999999C489.9340000000001,376.5859999999999,494.48100000000005,364.6539999999999,494.48100000000005,364.6539999999999L500.79400000000004,359.29699999999985L504.845,361.20099999999985L505.438,371.203Z"
+        )
+        private var textCitys = arrayOf(
+            "北京",
+            "天津",
+            "上海",
+            "重庆",
+            "河北",
+            "山西",
+            "辽宁",
+            "黑龙江",
+            "吉林",
+            "江苏",
+            "浙江",
+            "安徽",
+            "福建",
+            "江西",
+            "山东",
+            "河南",
+            "湖北",
+            "湖南",
+            "广东",
+            "海南",
+            "四川",
+            "贵州",
+            "云南",
+            "陕西",
+            "甘肃",
+            "青海",
+            "内蒙",
+            "广西",
+            "西藏",
+            "宁夏",
+            "新疆",
+            "澳门",
+            "香港",
+            "台湾"
         )
         const val BeiJing = 0
         const val TianJin = 1
@@ -186,6 +223,7 @@ class ChinaMapView @JvmOverloads constructor(
     private var xPaths = arrayOfNulls<Path>(34)
     private var xPaints = arrayOfNulls<Paint>(34)
     private lateinit var touchPaint: Paint
+    private lateinit var textPaint: Paint
     private var selected: Int = -1
 
     private var xMatrix: Matrix = Matrix()
@@ -266,6 +304,9 @@ class ChinaMapView @JvmOverloads constructor(
         touchPaint.style = Paint.Style.FILL
         touchPaint.color = DEFAULT_SELECT_COLOR
         touchPaint.strokeWidth = 1f
+        textPaint = Paint(Paint.ANTI_ALIAS_FLAG)
+        textPaint.style = Paint.Style.FILL
+        textPaint.color = TEXT_COLOR
         setOnTouchListener(this)
     }
 
@@ -293,7 +334,7 @@ class ChinaMapView @JvmOverloads constructor(
         drawBaseMap(canvas)
 
         drawSelectedMap(canvas)
-
+        drawProvinceName(canvas)
     }
 
 
@@ -302,17 +343,19 @@ class ChinaMapView @JvmOverloads constructor(
             xPaints[i]?.color = DEFAULT_COLOR
             canvas?.drawPath(xPaths[i], xPaints[i])
         }
-        val hljRF = RectF()
-        xPaths[HeiLongJiang]?.computeBounds(hljRF, true)
-        var oval = DensityUtils.dp2px(context, 10f)
-        canvas?.drawOval(
-            RectF(
-                (hljRF.right / 2 - oval).toFloat(),
-                (hljRF.bottom / 2 - oval).toFloat(),
-                (hljRF.right / 2 + oval).toFloat(),
-                (hljRF.bottom / 2 + oval).toFloat()
-            ), touchPaint
-        )
+    }
+
+    private fun drawProvinceName(canvas: Canvas?) {
+        for (i in xPaths.indices) {
+            val rf = RectF()
+            xPaths[i]?.computeBounds(rf, true)
+            canvas?.drawText(
+                textCitys[i],
+                rf.left + (rf.right - rf.left) / 2-10,
+                rf.bottom - (rf.bottom - rf.top) / 2,
+                textPaint
+            )
+        }
     }
 
     private fun drawSelectedMap(canvas: Canvas?) {

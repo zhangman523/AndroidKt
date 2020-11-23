@@ -22,6 +22,17 @@
         <activity
             android:name=".constrainlayout.ConstraintLayoutStateTest"
             android:label="ConstraintLayoutStates" />
+        <activity
+            android:name=".SudoActivity"
+            android:label="Sudoku" />
+        <activity android:name=".notification.NotificationOTest" />
+        <activity
+            android:name=".transition.CircularTransitionAActivity"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".transition.CircularTransitionBActivity"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity android:name=".animation.ArcCircleAnimationActivity" />
         <activity android:name=".SudoActivity"
             android:label="Sudoku"
             />

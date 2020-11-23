@@ -5,7 +5,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import zhangman.github.androidkt.animation.ArcCircleAnimationActivity
 import zhangman.github.androidkt.constrainlayout.ConstraintLayoutStateTest
+import zhangman.github.androidkt.notification.NotificationOTest
+import zhangman.github.androidkt.transition.CircularTransitionAActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +20,19 @@ class MainActivity : AppCompatActivity() {
         DemosAdapter.Demo(
             "ConstrainLayout ConstraintLayoutStates ", " Basic ConstraintLayoutStates example ",
             ConstraintLayoutStateTest::class.java
+        ),
+        DemosAdapter.Demo("Sudoku", "Sudoku java model", SudoActivity::class.java),
+        DemosAdapter.Demo(
+            "notification test",
+            "android o notification compat",
+            NotificationOTest::class.java
+        ), DemosAdapter.Demo(
+            "circular reveal animation",
+            "transition circular reveal animation", CircularTransitionAActivity::class.java
+        ), DemosAdapter.Demo(
+            "Arc circle animation",
+            "Arc circle animation", ArcCircleAnimationActivity::class.java
+        )
         ), DemosAdapter.Demo("Sudoku", "Sudoku java model", SudoActivity::class.java),
         DemosAdapter.Demo("新冠状病毒疫情", "疫情地图", GoChinaActivity::class.java)
     )

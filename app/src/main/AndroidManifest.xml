@@ -32,6 +32,7 @@
         <activity
             android:name=".transition.CircularTransitionBActivity"
             android:theme="@style/AppTheme.Transparent" />
+        <activity android:name=".animation.ArcCircleAnimationActivity" />
     </application>
 
 </manifest>

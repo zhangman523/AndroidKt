@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import zhangman.github.androidkt.animation.ArcCircleAnimationActivity
 import zhangman.github.androidkt.constrainlayout.ConstraintLayoutStateTest
 import zhangman.github.androidkt.notification.NotificationOTest
 import zhangman.github.androidkt.transition.CircularTransitionAActivity
@@ -28,6 +29,9 @@ class MainActivity : AppCompatActivity() {
         ), DemosAdapter.Demo(
             "circular reveal animation",
             "transition circular reveal animation", CircularTransitionAActivity::class.java
+        ), DemosAdapter.Demo(
+            "Arc circle animation",
+            "Arc circle animation", ArcCircleAnimationActivity::class.java
         )
     )
 

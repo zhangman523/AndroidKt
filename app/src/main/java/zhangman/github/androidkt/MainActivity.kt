@@ -26,15 +26,15 @@ class MainActivity : AppCompatActivity() {
             "notification test",
             "android o notification compat",
             NotificationOTest::class.java
-        ), DemosAdapter.Demo(
+        ),
+        DemosAdapter.Demo("china map", "china map", GoChinaActivity::class.java),
+        DemosAdapter.Demo(
             "circular reveal animation",
             "transition circular reveal animation", CircularTransitionAActivity::class.java
         ), DemosAdapter.Demo(
             "Arc circle animation",
             "Arc circle animation", ArcCircleAnimationActivity::class.java
-        ),
-        DemosAdapter.Demo("Sudoku", "Sudoku java model", SudoActivity::class.java),
-        DemosAdapter.Demo("中国地图", "中国地图", GoChinaActivity::class.java)
+        )
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

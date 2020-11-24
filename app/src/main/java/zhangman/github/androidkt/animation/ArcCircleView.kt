@@ -25,11 +25,11 @@ class ArcCircleView @JvmOverloads constructor(
     var mArcPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     var x: Int = 0
     var y: Int = 0
-    var mRadius = 1080
+    var mRadius = 1920
     var degree = 0f
 
     init {
-//        mArcPaint.strokeWidth = 12f
+        mArcPaint.strokeWidth = 0f
         mArcPaint.style = Paint.Style.FILL_AND_STROKE
 
     }
@@ -51,9 +51,14 @@ class ArcCircleView @JvmOverloads constructor(
             (y + mRadius).toFloat()
         )
         mArcPaint.isAntiAlias = true
-        mArcPaint.isFilterBitmap = true
-        var gapAngle = 12f
-        for (i in 0..29) {
+//        mArcPaint.isFilterBitmap = true
+        mArcPaint.color=Color.parseColor("#494949")
+        canvas?.drawCircle(x.toFloat(), y.toFloat(), mRadius.toFloat(), mArcPaint)
+        var gapAngle = 6f
+        for (i in 0..59) {
+            if (i % 2 == 0) {
+                continue
+            }
             drawArcByAngle(
                 canvas,
                 rect,
@@ -78,8 +83,7 @@ class ArcCircleView @JvmOverloads constructor(
     fun startAnimation() {
         degree = 0f
         val animator = ValueAnimator.ofFloat(0f, 360f)
-        animator.setDuration(6000).start()
-//        animator.repeatMode = RESTART
+        animator.setDuration(24000).start()
         animator.repeatCount = ValueAnimator.INFINITE
         animator.interpolator = LinearInterpolator()
         animator.addUpdateListener { animation ->

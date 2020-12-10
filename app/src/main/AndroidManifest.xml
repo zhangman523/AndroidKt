@@ -37,6 +37,8 @@
         <activity android:name=".animation.ArcCircleAnimationActivity" />
         <activity android:name=".GoChinaActivity" />
         <activity android:name=".floatview.FloatViewActivity" />
+        <activity android:name=".constrainlayout.ConstraintSetActivity" />
+        <activity android:name=".transition.TransformViewActivity" />
 
         <service android:name=".floatview.FloatingService" />
     </application>

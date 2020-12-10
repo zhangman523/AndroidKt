@@ -3,13 +3,16 @@ package zhangman.github.androidkt
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import zhangman.github.androidkt.animation.ArcCircleAnimationActivity
 import zhangman.github.androidkt.constrainlayout.ConstraintLayoutStateTest
+import zhangman.github.androidkt.constrainlayout.ConstraintSetActivity
 import zhangman.github.androidkt.floatview.FloatViewActivity
 import zhangman.github.androidkt.notification.NotificationOTest
 import zhangman.github.androidkt.transition.CircularTransitionAActivity
+import zhangman.github.androidkt.transition.TransformViewActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,7 +38,17 @@ class MainActivity : AppCompatActivity() {
         ), DemosAdapter.Demo(
             "Arc circle animation",
             "Arc circle animation", ArcCircleAnimationActivity::class.java
-        ), DemosAdapter.Demo(" Float View", "Float view ", FloatViewActivity::class.java)
+        ), DemosAdapter.Demo(" Float View", "Float view ", FloatViewActivity::class.java),
+        DemosAdapter.Demo(
+            " ConstraintLayout constraintSet",
+            "ConstraintLayout constraintSet",
+            ConstraintSetActivity::class.java
+        ),
+        DemosAdapter.Demo(
+            " Transition Container  ",
+            "Transform View",
+            TransformViewActivity::class.java
+        ),
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

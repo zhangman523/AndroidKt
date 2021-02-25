@@ -48,6 +48,13 @@ class FloatViewActivity : AppCompatActivity() {
                 startService(Intent(this, FloatingService::class.java))
             }
         }
+        hide_button.setOnClickListener {
+            val intent = Intent(this, FloatingService::class.java)
+            intent.apply {
+                putExtra("close", true)
+            }
+            startService(intent)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

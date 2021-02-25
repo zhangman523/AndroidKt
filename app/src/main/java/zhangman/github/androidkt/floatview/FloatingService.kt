@@ -18,12 +18,17 @@ class FloatingService : Service(), View.OnTouchListener {
 
     lateinit var layoutParams: WindowManager.LayoutParams
     lateinit var windowManager: WindowManager
+    lateinit var button: Button
     override fun onBind(intent: Intent?): IBinder? {
         TODO("Not yet implemented")
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        showFloatingWindow()
+        if (intent?.getBooleanExtra("close", false) == false) {
+            showFloatingWindow()
+        } else {
+            hideFloatingWindow()
+        }
         return super.onStartCommand(intent, flags, startId)
     }
 
@@ -32,10 +37,10 @@ class FloatingService : Service(), View.OnTouchListener {
             if (Settings.canDrawOverlays(this)) {
                 windowManager =
                     getSystemService(Context.WINDOW_SERVICE) as WindowManager
-                val buton = Button(application)
-                buton.text = "Floating window"
-                buton.setBackgroundColor(Color.BLUE)
-                buton.setOnTouchListener(this)
+                button = Button(application)
+                button.text = "Floating window"
+                button.setBackgroundColor(Color.BLUE)
+                button.setOnTouchListener(this)
                 layoutParams = WindowManager.LayoutParams()
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     layoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
@@ -48,7 +53,15 @@ class FloatingService : Service(), View.OnTouchListener {
                 layoutParams.x = 300
                 layoutParams.y = 300
                 layoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
-                windowManager.addView(buton, layoutParams)
+                windowManager.addView(button, layoutParams)
+            }
+        }
+    }
+
+    private fun hideFloatingWindow() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (windowManager != null) {
+                windowManager.removeView(button)
             }
         }
     }
